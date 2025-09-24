@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FixMyRide.com Futuristic Design System
+All colors MUST be HSL. Midnight blue, neon cyan, sunset orange theme.
+*/
+
+@layer base {
+  :root {
+    /* Core Theme Colors */
+    --midnight-blue: 222 84% 4.9%;
+    --midnight-blue-light: 222 84% 12%;
+    --neon-cyan: 190 100% 50%;
+    --neon-cyan-glow: 190 100% 70%;
+    --sunset-orange: 14 100% 60%;
+    --sunset-orange-light: 14 100% 70%;
+    
+    /* Background System */
+    --background: var(--midnight-blue);
+    --background-secondary: 222 84% 8%;
+    --background-glass: 222 84% 4.9% / 0.1;
+    --background-glass-strong: 222 84% 4.9% / 0.2;
+    --foreground: 0 0% 98%;
+
+    /* Card System */
+    --card: var(--background-secondary);
+    --card-glass: 0 0% 100% / 0.05;
+    --card-glass-strong: 0 0% 100% / 0.1;
+    --card-foreground: var(--foreground);
+    
+    --popover: var(--card);
+    --popover-foreground: var(--card-foreground);
+
+    /* Interactive Elements */
+    --primary: var(--neon-cyan);
+    --primary-foreground: var(--midnight-blue);
+    --primary-glow: var(--neon-cyan-glow);
+
+    --secondary: var(--sunset-orange);
+    --secondary-foreground: var(--midnight-blue);
+    --secondary-glow: var(--sunset-orange-light);
+
+    /* UI States */
+    --muted: 222 84% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: var(--neon-cyan);
+    --accent-foreground: var(--midnight-blue);
+
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --warning: var(--sunset-orange);
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 0 0% 100% / 0.1;
+    --border-strong: 0 0% 100% / 0.2;
+    --input: var(--background-secondary);
+    --ring: var(--neon-cyan);
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--midnight-blue)), hsl(var(--midnight-blue-light)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card-glass)), hsl(var(--card-glass-strong)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-cyan-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--sunset-orange)), hsl(var(--sunset-orange-light)));
+    
+    /* Shadows & Glows */
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.37);
+    --shadow-glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.3);
+    --shadow-glow-orange: 0 0 30px hsl(var(--sunset-orange) / 0.3);
+    --shadow-elevation: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+    --radius: 1rem;
+
+    /* Sidebar Support */
+    --sidebar-background: var(--background-secondary);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--neon-cyan);
+    --sidebar-primary-foreground: var(--midnight-blue);
+    --sidebar-accent: var(--muted);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
+
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+
+  /* Glass morphism utilities */
+  .glass {
+    background: hsl(var(--card-glass));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-strong {
+    background: hsl(var(--card-glass-strong));
+    backdrop-filter: blur(25px);
+    border: 1px solid hsl(var(--border-strong));
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Glow effects */
+  .glow-cyan {
+    box-shadow: var(--shadow-glow-cyan);
+  }
+
+  .glow-orange {
+    box-shadow: var(--shadow-glow-orange);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background-secondary));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--neon-cyan) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--neon-cyan) / 0.5);
+  }
+}
