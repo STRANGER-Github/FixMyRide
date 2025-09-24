@@ -27,6 +27,7 @@ No more panic, no more waiting — just quick access to real human help when it 
 
 ```bash
 git clone https://github.com/STRANGER-Github/FixMyRide.git
-cd fixmyride-frontend
+cd FixMyRide
 npm install
 npm run dev
+
