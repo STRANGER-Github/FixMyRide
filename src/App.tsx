@@ -31,16 +31,83 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
+          {/* <Routes> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <Routes>
+  <Route path="/" element={<Index />} />
+  <Route path="/login" element={<UserLogin />} />
+  <Route path="/serviceprovider/login" element={<ServiceProviderLogin />} />
+  <Route path="/admin/login" element={<AdminLogin />} />
+  <Route path="/403" element={<UnauthorizedPage />} />
+  
+  {/* Make these routes public by removing ProtectedRoute */}
+  <Route path="/book" element={<BookService />} />
+  <Route path="/emergency" element={<Emergency />} />
+  <Route path="/track" element={<TrackService />} />
+  <Route path="/profile" element={<UserProfile />} />
+  
+  <Route path="/serviceprovider" element={<ServiceProvider />} />
+  <Route path="/serviceprovider/kyc" element={<KYCUpload />} />
+  <Route path="/serviceprovider/mechanic/dashboard" element={<MechanicDashboard />} />
+  <Route path="/serviceprovider/fuel/dashboard" element={<FuelDashboard />} />
+  <Route path="/serviceprovider/medical/dashboard" element={<MedicalDashboard />} />
+
+  <Route path="/admin" element={<AdminDashboard />} />
+  <Route path="/admin/dashboard" element={<AdminDashboard />} />
+  <Route path="/admin/kyc-approvals" element={<AdminKYCApprovals />} />
+
+  <Route path="*" element={<NotFound />} />
+</Routes>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             {/* Public Routes */}
-            <Route path="/" element={<Index />} />
+            {/* <Route path="/" element={<Index />} />
             <Route path="/login" element={<UserLogin />} />
             <Route path="/serviceprovider/login" element={<ServiceProviderLogin />} />
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/403" element={<UnauthorizedPage />} />
-            
+            <Route path="/403" element={<UnauthorizedPage />} /> */}
+
             {/* User Routes */}
-            <Route path="/book" element={
+            {/* <Route path="/book" element={
               <ProtectedRoute allowedRoles={['user']}>
                 <BookService />
               </ProtectedRoute>
@@ -59,10 +126,10 @@ const App = () => (
               <ProtectedRoute allowedRoles={['user']}>
                 <UserProfile />
               </ProtectedRoute>
-            } />
-            
+            } /> */}
+
             {/* Service Provider Routes */}
-            <Route path="/serviceprovider" element={<ServiceProvider />} />
+            {/* <Route path="/serviceprovider" element={<ServiceProvider />} />
             <Route path="/serviceprovider/kyc" element={
               <ProtectedRoute allowedRoles={['mechanic', 'fuel_station', 'doctor']}>
                 <KYCUpload />
@@ -82,10 +149,10 @@ const App = () => (
               <ProtectedRoute allowedRoles={['doctor']}>
                 <MedicalDashboard />
               </ProtectedRoute>
-            } />
-            
+            } /> */}
+
             {/* Admin Routes */}
-            <Route path="/admin" element={
+            {/* <Route path="/admin" element={
               <ProtectedRoute allowedRoles={['admin']}>
                 <AdminDashboard />
               </ProtectedRoute>
@@ -100,10 +167,10 @@ const App = () => (
                 <AdminKYCApprovals />
               </ProtectedRoute>
             } />
-            
+ */}
             {/* Catch All */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+            {/* <Route path="*" element={<NotFound />} /> */}
+          {/* </Routes> */}
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>
