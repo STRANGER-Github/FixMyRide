@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import Hero3D from "./Hero3D";
+// import Hero3D from "./Hero3D";
 import heroCarImage from "@/assets/hero-car.png";
 
 export default function HeroSection() {
@@ -77,7 +77,7 @@ export default function HeroSection() {
         {/* Right Content - 3D Car or Image */}
         <div className="relative">
           <div className="hidden">
-            <Hero3D />
+            {/* <Hero3D /> */}
           </div>
           
           {/* Fallback Image for smaller screens */}
