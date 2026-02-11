@@ -1,32 +1,37 @@
 import { motion } from "framer-motion";
 import { Shield, Wrench, UserCheck } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const roles = [
   {
     icon: UserCheck,
     title: "I Need Help",
     desc: "I'm a vehicle owner looking for emergency roadside assistance.",
-    role: "user",
-    color: "primary",
+    path: "/user/dashboard",
   },
   {
     icon: Wrench,
     title: "I Provide Services",
     desc: "I'm a mechanic, fuel station, or medical professional.",
-    role: "provider",
-    color: "accent",
+    path: "/provider/dashboard",
   },
   {
     icon: Shield,
     title: "Administrator",
     desc: "I manage the FixMyRide platform.",
-    role: "admin",
-    color: "muted",
+    path: "/admin/dashboard",
   },
 ];
 
 export default function RoleSelectPage() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleSelect = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <div className="min-h-screen bg-background gradient-mesh flex items-center justify-center p-6">
       <motion.div
@@ -49,13 +54,14 @@ export default function RoleSelectPage() {
 
           <div className="space-y-4">
             {roles.map((role, i) => (
-              <motion.div
-                key={role.role}
+              <motion.button
+                key={role.path}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="glass rounded-xl p-5 cursor-pointer group hover:border-primary/30 transition-all"
+                onClick={() => handleSelect(role.path)}
+                className="w-full glass rounded-xl p-5 cursor-pointer group hover:border-primary/30 transition-all text-left"
               >
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors shrink-0">
@@ -66,7 +72,7 @@ export default function RoleSelectPage() {
                     <p className="text-sm text-muted-foreground">{role.desc}</p>
                   </div>
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </div>
         </div>
