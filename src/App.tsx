@@ -9,6 +9,8 @@ import ProtectedRoute from "@/components/auth/ProtectedRoute";
 // Public pages
 import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
+import EmergencyPage from "./pages/EmergencyPage";
+import SupportPage from "./pages/SupportPage";
 
 // Auth pages
 import LoginPage from "./pages/auth/LoginPage";
@@ -30,6 +32,12 @@ import JobManagement from "./pages/provider/JobManagement";
 import KYCVerification from "./pages/provider/KYCVerification";
 import ProviderProfile from "./pages/provider/ProviderProfile";
 import Earnings from "./pages/provider/Earnings";
+
+// Admin pages
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ProviderManagement from "./pages/admin/ProviderManagement";
+import UserManagement from "./pages/admin/UserManagement";
+import DisputeResolution from "./pages/admin/DisputeResolution";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +72,16 @@ const App = () => (
             <Route path="/provider/kyc" element={<ProtectedRoute><KYCVerification /></ProtectedRoute>} />
             <Route path="/provider/profile" element={<ProtectedRoute><ProviderProfile /></ProtectedRoute>} />
             <Route path="/provider/earnings" element={<ProtectedRoute><Earnings /></ProtectedRoute>} />
+
+            {/* Admin */}
+            <Route path="/admin/dashboard" element={<ProtectedRoute requiredRole="admin"><AdminDashboard /></ProtectedRoute>} />
+            <Route path="/admin/providers" element={<ProtectedRoute requiredRole="admin"><ProviderManagement /></ProtectedRoute>} />
+            <Route path="/admin/users" element={<ProtectedRoute requiredRole="admin"><UserManagement /></ProtectedRoute>} />
+            <Route path="/admin/disputes" element={<ProtectedRoute requiredRole="admin"><DisputeResolution /></ProtectedRoute>} />
+
+            {/* Shared */}
+            <Route path="/emergency" element={<EmergencyPage />} />
+            <Route path="/support" element={<SupportPage />} />
 
             {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
