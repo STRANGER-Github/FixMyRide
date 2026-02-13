@@ -12,10 +12,12 @@ import NotFound from "./pages/NotFound";
 import EmergencyPage from "./pages/EmergencyPage";
 import SupportPage from "./pages/SupportPage";
 
-// Auth pages
-import LoginPage from "./pages/auth/LoginPage";
-import RegisterPage from "./pages/auth/RegisterPage";
-import RoleSelectPage from "./pages/auth/RoleSelectPage";
+// Auth pages — separate per role
+import UserLoginPage from "./pages/auth/UserLoginPage";
+import UserRegisterPage from "./pages/auth/UserRegisterPage";
+import ProviderLoginPage from "./pages/auth/ProviderLoginPage";
+import ProviderRegisterPage from "./pages/auth/ProviderRegisterPage";
+import AdminLoginPage from "./pages/auth/AdminLoginPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 
 // User pages
@@ -52,11 +54,17 @@ const App = () => (
             {/* Public */}
             <Route path="/" element={<LandingPage />} />
 
-            {/* Auth */}
-            <Route path="/auth/login" element={<LoginPage />} />
-            <Route path="/auth/register" element={<RegisterPage />} />
-            <Route path="/auth/role-select" element={<RoleSelectPage />} />
+            {/* Auth — Separate per role */}
+            <Route path="/auth/user/login" element={<UserLoginPage />} />
+            <Route path="/auth/user/register" element={<UserRegisterPage />} />
+            <Route path="/auth/provider/login" element={<ProviderLoginPage />} />
+            <Route path="/auth/provider/register" element={<ProviderRegisterPage />} />
+            <Route path="/auth/admin/login" element={<AdminLoginPage />} />
             <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
+
+            {/* Legacy auth routes redirect to user versions */}
+            <Route path="/auth/login" element={<UserLoginPage />} />
+            <Route path="/auth/register" element={<UserRegisterPage />} />
 
             {/* User */}
             <Route path="/user/dashboard" element={<ProtectedRoute><UserDashboard /></ProtectedRoute>} />
