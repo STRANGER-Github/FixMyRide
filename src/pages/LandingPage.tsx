@@ -25,7 +25,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section */}
-      <header className="relative min-h-screen flex flex-col">
+      <header className="relative  flex flex-col">
         {/* Nav */}
         <nav className="relative z-20 flex items-center justify-between px-6 py-5 lg:px-12">
           <motion.div
@@ -46,12 +46,12 @@ export default function LandingPage() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <Link to="/auth/login">
+            <Link to="/auth/user/login">
               <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
                 Sign In
               </Button>
             </Link>
-            <Link to="/auth/register">
+            <Link to="/auth/user/register">
               <Button className="gradient-primary text-primary-foreground neon-glow font-semibold">
                 Get Started
               </Button>
@@ -64,77 +64,6 @@ export default function LandingPage() {
           <HeroScene />
         </Suspense>
 
-        {/* Hero Content */}
-        <div className="relative z-10 flex-1 flex items-center px-6 lg:px-12">
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
-            >
-              <span className="h-2 w-2 rounded-full bg-success animate-pulse-glow" />
-              <span className="text-sm text-muted-foreground">24/7 Emergency Roadside Assistance</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              className="text-5xl lg:text-7xl font-display font-bold leading-tight mb-6"
-            >
-              Your Digital{" "}
-              <span className="text-primary neon-text">Guardian Angel</span>{" "}
-              on the Road
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed"
-            >
-              Instant connection to verified mechanics, fuel delivery, and medical help.
-              One tap away from getting back on the road.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Link to="/auth/register">
-                <Button size="lg" className="gradient-emergency emergency-glow text-accent-foreground font-bold text-base px-8 h-13">
-                  <Shield className="h-5 w-5 mr-2" />
-                  Emergency Help
-                </Button>
-              </Link>
-              <Link to="/auth/register">
-                <Button size="lg" variant="outline" className="border-border hover:border-primary hover:text-primary h-13 text-base">
-                  Learn More
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="relative z-10 flex justify-center pb-8"
-        >
-          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-1.5 h-1.5 rounded-full bg-primary"
-            />
-          </div>
-        </motion.div>
       </header>
 
       {/* Services Section */}
